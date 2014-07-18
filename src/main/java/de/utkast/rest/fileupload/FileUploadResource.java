@@ -84,7 +84,7 @@ public class FileUploadResource {
 	@Path("/form")
 	@Consumes(MediaType.MULTIPART_FORM_DATA)
 	@Produces(MediaType.TEXT_PLAIN)
-	public Response uploadForm(MultipartFormDataInput input, @Context HttpHeaders headers) throws IOException {
+	public Response uploadForm(MultipartFormDataInput input) throws IOException {
 		String charset = input.getFormDataMap().get("_charset_").get(0).getBodyAsString();
 		InputPart file = input.getFormDataMap().get("file").get(0);
 		InputStream inputStream = file.getBody(InputStream.class, null);
